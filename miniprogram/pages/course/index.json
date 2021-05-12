@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-uploader": "@vant/weapp/uploader/index"
+  },
+  "navigationBarBackgroundColor": "#efefef",
+  "navigationBarTitleText": "课程信息",
+  "navigationBarTextStyle": "black"
+}

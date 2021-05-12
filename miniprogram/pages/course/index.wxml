@@ -1,0 +1,112 @@
+<!--miniprogram/pages/cours/index.wxml-->
+<view class="cu-bar bg-white solid-bottom margin-top bar-height">
+  <view class="action">
+    <text class="cuIcon-title text-orange "></text>
+    {{courseInfo.courseName}}
+  </view>
+  <view class="other-bar">
+    <!-- 发布者 -->
+    <view class="publisher">
+      <view class="tea-icon">
+        <image src="../../assets/images/course/teacher.png"></image>
+      </view>
+      {{courseInfo.publisher}}
+    </view>
+    <!-- 发布时间 -->
+    <view class="release-time">
+      {{courseInfo.releaseTime}}
+    </view>
+  </view>
+</view>
+
+<!-- 内容模块拆解 -->
+<!-- <view class="cu-bar bg-cyan solid-bottom margin-top3">
+  <view class="action">
+    <text class="cuIcon-title text-white "></text>
+    授课教师
+  </view>
+</view>
+<view class="UserContainer">
+  <view>
+    <view class="top">
+      <open-data type="userAvatarUrl"></open-data>
+      <text>17物联郭娜那</text>
+    </view>
+    <view style="margin-top:20rpx;" class="data-v-66f8937f">完成学习：2020--3-26 18:32</view>
+    <u-line-progress style="margin-top:10rpx;" vue-id="781a5d67-5" active-color="#2979ff" percent="{{70}}"
+      class="data-v-66f8937f" bind:__l="__l"></u-line-progress>
+    <view style="margin-top:10rpx;" class="data-v-66f8937f">观看时长：22分9秒</view>
+  </view>
+</view> -->
+
+<!-- 教学教材 -->
+<view class="cu-bar bg-cyan solid-bottom margin-top3">
+  <view class="action">
+    <text class="cuIcon-title text-white "></text>
+    教学教材
+  </view>
+</view>
+<view class="UserContainer">
+  <view class="cu-list menu-avatar" wx:if="{{courseInfo.teachingMaterials.length > 0}}">
+    <view class=" cu-item" wx:for="{{courseInfo.teachingMaterials}}" wx:key>
+      <view class="cu-avatar round lg" style="background-image:url({{item.image}});" bindtap="onClick"
+        data-id="{{item.id}}"></view>
+      <view class="content" bindtap="onClick" data-id="{{item.id}}">
+        <view class="text-mauve">{{item.name}}</view>
+        <view class="text-gray text-sm flex">
+          <text class="text-cut" wx:if="{{item.description != null}}">{{item.description}}</text>
+        </view>
+      </view>
+      <text class="cuIcon-delete lg text-red" bindtap="showModal" data-id="{{item.id}}"></text>
+    </view>
+  </view>
+  <view class='page-body' wx:else>
+    <view class='page-empty'>
+      <image class="no-data" src="../../assets/images/course/ic_no_data.png" mode=''></image>
+      <view class='content text-gray'>教师还未上传资料，待会再看哦～</view>
+    </view>
+  </view>
+  <van-uploader accept="file" bind:after-read="afterRead">
+    <button class='cu-btn bg-yellow margin-top-lg'>资料上传</button>
+  </van-uploader>
+</view>
+
+<!-- 参考资料 -->
+<view class="cu-bar bg-brown solid-bottom margin-top3">
+  <view class="action">
+    <text class="cuIcon-title text-white "></text>
+    参考资料
+  </view>
+</view>
+<view class="UserContainer">
+  <view class="page-body" wx:if="{{courseList.length>0}}">
+    <item-to-learning wx:for="{{courseList}}" wx:key="id" url="{{item.imageSrc}}" status="{{item.status}}"
+      target="{{target}}" targetId="{{item.id}}"></item-to-learning>
+  </view>
+  <view class='page-body' wx:else>
+    <view class='page-empty'>
+      <image class="no-data" src="../../assets/images/course/ic_no_data.png" mode=''></image>
+      <view class='content text-gray'>教师还未上传资料，待会再看哦～</view>
+    </view>
+  </view>
+</view>
+
+<!-- 教学视频 -->
+<view class="cu-bar bg-mauve solid-bottom margin-top3">
+  <view class="action">
+    <text class="cuIcon-title text-white "></text>
+    教学视频
+  </view>
+</view>
+<view class="UserContainer">
+  <view class="page-body" wx:if="{{courseList.length>0}}">
+    <item-to-learning wx:for="{{courseList}}" wx:key="id" url="{{item.imageSrc}}" status="{{item.status}}"
+      target="{{target}}" targetId="{{item.id}}"></item-to-learning>
+  </view>
+  <view class='page-body' wx:else>
+    <view class='page-empty'>
+      <image class="no-data" src="../../assets/images/course/ic_no_data.png" mode=''></image>
+      <view class='content text-gray'>教师还未上传视频，待会再看哦～</view>
+    </view>
+  </view>
+</view>

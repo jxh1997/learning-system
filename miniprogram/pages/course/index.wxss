@@ -1,0 +1,77 @@
+/* miniprogram/pages/cours/index.wxss */
+.margin-top {
+  margin-top: 0;
+}
+
+.cuIcon-delete {
+  margin-right: 16rpx;
+  font-size: 32rpx;
+}
+.bar-height {
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.tea-icon {
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+}
+.tea-icon image{
+  width: 100%;
+  height: 100%;
+}
+.other-bar {
+  display: flex;
+  width: 100%;
+  color: #adadad;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.publisher {
+  display: flex;
+}
+.release-time {
+  margin-right: 50rpx;
+}
+
+.margin-top3 {
+  margin-top: 30rpx;
+}
+
+.UserContainer {
+  background-color: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  text-align: center;
+}
+.UserContainer .top {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+open-data[type="userAvatarUrl"] {
+  width: calc(750rpx * 0.12);
+  height: calc(750rpx * 0.12);
+  display: block;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6rpx solid white;
+  margin-right: 10rpx;
+}
+
+.page-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-empty image {
+  width: 100rpx;
+  height: 100rpx;
+}

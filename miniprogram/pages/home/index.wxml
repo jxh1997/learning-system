@@ -1,0 +1,34 @@
+<!--miniprogram/pages/index/index.wxml-->
+<view>
+  <!-- swiper -->
+  <view class="swiper">
+    <view class="_div public-swiper">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+        class="_swiper">
+        <block wx:for="{{swiperList}}" wx:key="index" wx:for-index="index" wx:for-item="item">
+          <swiper-item>
+            <image src="{{item.img}}" mode="aspectFill" class="_swiper-img"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <!-- 教学资源模块 -->
+  <view class="cu-bar bg-white solid-bottom margin-top ">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 教学资源
+    </view>
+  </view>
+  <!-- 资源入口 -->
+  <view class="recommend">
+    <view wx:for="{{courseList}}" class="row" bindtap="intro" data-id='{{item._id}}'>
+      <view class="photo">
+        <image src="{{item.courseImg}}"></image>
+      </view>
+      <view class="desc">{{item.courseName}}<text class="teacher">{{item.username}}进度</text></view>
+      <view class="trend">></view>
+    </view>
+    <view class="null" wx:if="{{courseList.length==0}}">空空如也</view>
+  </view>
+</view>
