@@ -58,4 +58,26 @@ Page({
       url: '../course/index?courseId=' + courseId
     })
   },
+
+  // 加入
+  toAdd: function(e) {
+    wx.showActionSheet({
+      itemList: ["创建课程", "发布作业", "课后练习"],
+      success: function(e) {
+        if (e.tapIndex == 0) {
+          wx.navigateTo({
+            url: '../createCourse/index',
+          })
+        } else if (e.tapIndex == 1) {
+          wx.navigateTo({
+            url: '../createWorks/index',
+          })
+        } else if (e.tapIndex == 2) {
+          wx.navigateTo({
+            url: '../createHomeWorks/index',
+          })
+        }
+      }
+    })
+  }
 })

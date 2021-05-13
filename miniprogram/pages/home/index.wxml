@@ -32,3 +32,7 @@
     <view class="null" wx:if="{{courseList.length==0}}">空空如也</view>
   </view>
 </view>
+<!-- 添加资源 -->
+<view class="add" id="add" catchtap='toAdd'>
+  <image src="../../assets/images/icon/add.png"></image>
+</view>

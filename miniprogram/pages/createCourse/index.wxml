@@ -1,0 +1,14 @@
+<view class="head">
+  <form bindsubmit='createCourse'>
+    <view class="row row1">
+      <label>课程名</label>
+      <input placeholder='点击此处输入' name='courseName' bindinput="getCourseName" value="{{courseName}}"></input>
+    </view>
+    <label>添加封面(1张)</label>
+    <view class="row row2">
+      <image class="add-img" src="{{courseImg}}" bindtap='chooseCourseImg'></image>
+    </view>
+    <button form-type='submit' id="submit">创建</button>
+    <button class="gobackBtn" type="warn" bindtap="reset">重置</button>
+  </form>
+</view>

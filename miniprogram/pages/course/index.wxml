@@ -55,6 +55,7 @@
         <image wx:elif="{{item.fileHouzhui === 'doc' || item.fileHouzhui === 'docx'}}"
           src="../../assets/images/icon/doc.png"></image>
         <image wx:elif="{{item.fileHouzhui === 'excel'}}" src="../../assets/images/icon/excel.png"></image>
+        <image wx:elif="{{item.fileHouzhui === 'ppt'}}" src="../../assets/images/icon/ppt.png"></image>
         <image wx:else src="../../assets/images/icon/word.png"></image>
       </view>
       <!-- 文件 -->
@@ -99,6 +100,7 @@
         <image wx:if="{{item.fileHouzhui === 'pdf'}}" src="../../assets/images/icon/pdf.png"></image>
         <image wx:elif="{{item.fileHouzhui === 'doc' || item.fileHouzhui === 'docx'}}" src="../../assets/images/icon/doc.png"></image>
         <image wx:elif="{{item.fileHouzhui === 'excel'}}" src="../../assets/images/icon/excel.png"></image>
+        <image wx:elif="{{item.fileHouzhui === 'ppt'}}" src="../../assets/images/icon/ppt.png"></image>
         <image wx:else src="../../assets/images/icon/word.png"></image>
       </view>
       <!-- 文件 -->

@@ -12,8 +12,19 @@ App({
         env: 'lms-3gkwj950d4e06374',
         traceUser: true,
       })
+
+      let that = this;
+
+      wx.cloud.callFunction({
+        name: 'getopenid',
+        complete: res => {
+          that.globalData.openid = res.result.openid;
+        }
+      })
     }
 
-    this.globalData = {}
+    this.globalData = {
+      openid: '',
+    }
   }
 })
