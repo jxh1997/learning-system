@@ -47,17 +47,30 @@
   </view>
 </view>
 <view class="UserContainer">
-  <view class="cu-list menu-avatar" wx:if="{{courseInfo.teachingMaterials.length > 0}}">
-    <view class=" cu-item" wx:for="{{courseInfo.teachingMaterials}}" wx:key>
-      <view class="cu-avatar round lg" style="background-image:url({{item.image}});" bindtap="onClick"
-        data-id="{{item.id}}"></view>
-      <view class="content" bindtap="onClick" data-id="{{item.id}}">
-        <view class="text-mauve">{{item.name}}</view>
-        <view class="text-gray text-sm flex">
-          <text class="text-cut" wx:if="{{item.description != null}}">{{item.description}}</text>
+  <view class="cu-list menu-avatar" wx:if="{{teachingMaterials.length > 0}}">
+    <view class="cu-item" wx:for="{{teachingMaterials}}" wx:key="t+index">
+      <!-- 后缀图标 -->
+      <view class="houzhui">
+        <image wx:if="{{item.fileHouzhui === 'pdf'}}" src="../../assets/images/icon/pdf.png"></image>
+        <image wx:elif="{{item.fileHouzhui === 'doc' || item.fileHouzhui === 'docx'}}"
+          src="../../assets/images/icon/doc.png"></image>
+        <image wx:elif="{{item.fileHouzhui === 'excel'}}" src="../../assets/images/icon/excel.png"></image>
+        <image wx:else src="../../assets/images/icon/word.png"></image>
+      </view>
+      <!-- 文件 -->
+      <view class="content" bindtap="openFile" data-fileId="{{item.fileID}}">
+        <view class="text-mauve">{{item.fileName}}</view>
+      </view>
+      <view class="right">
+        <!-- 下载 -->
+        <view class="download" bindtap="downLoadFile" data-fileId="{{item.fileID}}">
+          <image src="../../assets/images/icon/download.png"></image>
+        </view>
+        <!-- 删除 -->
+        <view class="del" bindtap="delFile" data-fileId="{{item.fileID}}" data-type="Teaching">
+          <image src="../../assets/images/icon/del.png"></image>
         </view>
       </view>
-      <text class="cuIcon-delete lg text-red" bindtap="showModal" data-id="{{item.id}}"></text>
     </view>
   </view>
   <view class='page-body' wx:else>
@@ -66,7 +79,7 @@
       <view class='content text-gray'>教师还未上传资料，待会再看哦～</view>
     </view>
   </view>
-  <van-uploader accept="file" bind:after-read="afterRead">
+  <van-uploader accept="file" bind:after-read="afterRead" data-type="Teaching">
     <button class='cu-btn bg-yellow margin-top-lg'>资料上传</button>
   </van-uploader>
 </view>
@@ -79,9 +92,30 @@
   </view>
 </view>
 <view class="UserContainer">
-  <view class="page-body" wx:if="{{courseList.length>0}}">
-    <item-to-learning wx:for="{{courseList}}" wx:key="id" url="{{item.imageSrc}}" status="{{item.status}}"
-      target="{{target}}" targetId="{{item.id}}"></item-to-learning>
+  <view class="cu-list menu-avatar" wx:if="{{referenceMaterials.length > 0}}">
+    <view class="cu-item" wx:for="{{referenceMaterials}}" wx:key="r+index">
+      <!-- 后缀图标 -->
+      <view class="houzhui">
+        <image wx:if="{{item.fileHouzhui === 'pdf'}}" src="../../assets/images/icon/pdf.png"></image>
+        <image wx:elif="{{item.fileHouzhui === 'doc' || item.fileHouzhui === 'docx'}}" src="../../assets/images/icon/doc.png"></image>
+        <image wx:elif="{{item.fileHouzhui === 'excel'}}" src="../../assets/images/icon/excel.png"></image>
+        <image wx:else src="../../assets/images/icon/word.png"></image>
+      </view>
+      <!-- 文件 -->
+      <view class="content" bindtap="openFile" data-fileId="{{item.fileID}}">
+        <view class="text-mauve">{{item.fileName}}</view>
+      </view>
+      <view class="right">
+        <!-- 下载 -->
+        <view class="download" bindtap="downLoadFile" data-fileId="{{item.fileID}}">
+          <image src="../../assets/images/icon/download.png"></image>
+        </view>
+        <!-- 删除 -->
+        <view class="del" bindtap="delFile" data-fileId="{{item.fileID}}" data-type="Reference">
+          <image src="../../assets/images/icon/del.png"></image>
+        </view>
+      </view>
+    </view>
   </view>
   <view class='page-body' wx:else>
     <view class='page-empty'>
@@ -89,6 +123,9 @@
       <view class='content text-gray'>教师还未上传资料，待会再看哦～</view>
     </view>
   </view>
+  <van-uploader accept="file" bind:after-read="afterRead" data-type="Reference">
+    <button class='cu-btn bg-yellow margin-top-lg'>资料上传</button>
+  </van-uploader>
 </view>
 
 <!-- 教学视频 -->
@@ -99,14 +136,37 @@
   </view>
 </view>
 <view class="UserContainer">
-  <view class="page-body" wx:if="{{courseList.length>0}}">
-    <item-to-learning wx:for="{{courseList}}" wx:key="id" url="{{item.imageSrc}}" status="{{item.status}}"
-      target="{{target}}" targetId="{{item.id}}"></item-to-learning>
+  <view class="cu-list menu-avatar" wx:if="{{videoMaterials.length > 0}}">
+    <view class="cu-item" wx:for="{{videoMaterials}}" wx:key="v+index">
+      <!-- 后缀图标 -->
+      <view class="houzhui">
+        <image wx:if="{{item.fileHouzhui === 'mp4'}}" src="../../assets/images/icon/mp4.png"></image>
+        <image wx:else src="../../assets/images/icon/video.png"></image>
+      </view>
+      <!-- 文件 -->
+      <view class="content" bindtap="playVideo" data-fileId="{{item.fileID}}">
+        <view class="text-mauve">{{item.fileName}}</view>
+      </view>
+      <view class="right">
+        <!-- 下载 -->
+        <view class="download" bindtap="downLoadFile" data-fileId="{{item.fileID}}">
+          <image src="../../assets/images/icon/download.png"></image>
+        </view>
+        <!-- 删除 -->
+        <view class="del" bindtap="delFile" data-fileId="{{item.fileID}}" data-type="Video">
+          <image src="../../assets/images/icon/del.png"></image>
+        </view>
+      </view>
+    </view>
   </view>
+
   <view class='page-body' wx:else>
     <view class='page-empty'>
       <image class="no-data" src="../../assets/images/course/ic_no_data.png" mode=''></image>
       <view class='content text-gray'>教师还未上传视频，待会再看哦～</view>
     </view>
   </view>
+  <van-uploader accept="video" bind:after-read="afterReadVideo" data-type="Video">
+    <button class='cu-btn bg-yellow margin-top-lg'>视频上传</button>
+  </van-uploader>
 </view>

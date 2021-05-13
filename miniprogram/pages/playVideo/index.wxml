@@ -1,0 +1,10 @@
+<!--miniprogram/pages/playVideo/index.wxml-->
+<video 
+  src="{{fileId}}" 
+  direction="0" 
+  controls="true" 
+  id="videoId" 
+  bindfullscreenchange="leaveVideo" 
+  class='videoCenter'
+></video>
+

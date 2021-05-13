@@ -75,3 +75,43 @@ open-data[type="userAvatarUrl"] {
   width: 100rpx;
   height: 100rpx;
 }
+
+.houzhui {
+  border-radius: 50%;
+	margin: 0;
+	padding: 0;
+	width: 80rpx;
+	height: 80rpx;
+}
+.houzhui image {
+  width: 100%;
+  height: 100%;
+}
+.cu-item {
+  justify-content: space-between !important;
+}
+.content {
+  flex: 1 !important;
+  left: 110rpx !important;
+}
+.download {
+	margin: 5rpx;
+	width: 50rpx;
+	height: 50rpx;
+}
+.download image {
+  width: 100%;
+  height: 100%;
+}
+.del {
+  margin: 5rpx;
+  width: 50rpx;
+	height: 50rpx;
+}
+.del image {
+  width: 100%;
+  height: 100%;
+}
+.cu-item .right {
+  display: flex;
+}
