@@ -129,6 +129,9 @@ Page({
           username: that.data.name,
           password: that.data.password,
           grade: that.data.grade,
+          sex: '',
+          tel: 0,
+          avatar: ''
         },
         success: res => {
           console.log(res);

@@ -80,7 +80,7 @@
       <view class='content text-gray'>教师还未上传资料，待会再看哦～</view>
     </view>
   </view>
-  <van-uploader accept="file" bind:after-read="afterRead" data-type="Teaching">
+  <van-uploader accept="file" bind:after-read="afterRead" data-type="Teaching" wx:if="{{grade === 1}}">
     <button class='cu-btn bg-yellow margin-top-lg'>资料上传</button>
   </van-uploader>
 </view>
@@ -125,7 +125,7 @@
       <view class='content text-gray'>教师还未上传资料，待会再看哦～</view>
     </view>
   </view>
-  <van-uploader accept="file" bind:after-read="afterRead" data-type="Reference">
+  <van-uploader accept="file" bind:after-read="afterRead" data-type="Reference" wx:if="{{grade === 1}}">
     <button class='cu-btn bg-yellow margin-top-lg'>资料上传</button>
   </van-uploader>
 </view>
@@ -168,7 +168,7 @@
       <view class='content text-gray'>教师还未上传视频，待会再看哦～</view>
     </view>
   </view>
-  <van-uploader accept="video" bind:after-read="afterReadVideo" data-type="Video">
+  <van-uploader accept="video" bind:after-read="afterReadVideo" data-type="Video" wx:if="{{grade === 1}}">
     <button class='cu-btn bg-yellow margin-top-lg'>视频上传</button>
   </van-uploader>
 </view>

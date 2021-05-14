@@ -12,12 +12,14 @@
     <view class="row" catchtap='toMes' ><view class="icon-duanxin iconfont icon">消息<text>></text></view></view>
   </view>
   <view class="block">
-    <view class="row" catchtap='toWorks'><view class="icon-xinxi iconfont icon">提交作业<text>></text></view></view>
+    <view class="row" catchtap='toWorks'><view class="icon-xinxi iconfont icon"  wx:if="{{grade === 2}}">提交作业<text>></text></view></view>
     <!-- <view class="row" catchtap='toFeedback'><view class="icon-pinglun iconfont icon">查看作业<text>></text></view></view> -->
-    <view class="row" catchtap='toMyWorks'><view class="icon-pinglun iconfont icon">我的作业<text>></text></view></view>
+    <view class="row" catchtap='toMyWorks'><view class="icon-pinglun iconfont icon"  wx:if="{{grade === 2}}">我的作业<text>></text></view></view>
+
+    <view class="row" catchtap='toMyHomeWorks'><view class="icon-pinglun iconfont icon"  wx:if="{{grade === 2}}">课后练习<text>></text></view></view>
 
   </view>
-  <view class="block">
+  <view class="block" wx:if="{{grade === 1}}">
     <view class="row row44" catchtap='toSet'><view class="icon-shezhi iconfont icon">批改作业<text>></text></view></view>
   </view>
 </view>

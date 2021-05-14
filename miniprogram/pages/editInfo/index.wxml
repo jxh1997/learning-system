@@ -1,7 +1,6 @@
 <!--miniprogram/pages/editInfo/index.wxml-->
 <view class="head">
   <view class="title">设置个人信息
-    
   </view>
   <form bindsubmit='submituser'>
     <view class="row">
@@ -20,7 +19,7 @@
       <label>学号/工号
         <text style="color:red">*</text>
       </label>
-      <input name="number" value='{{userInfo.userid}}'> </input>
+      <input name="number" value='{{userInfo.userid}}' disabled="true"> </input>
     </view>
     <view class="row">
       <label>手机

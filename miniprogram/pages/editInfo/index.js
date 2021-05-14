@@ -1,5 +1,7 @@
 // miniprogram/pages/editInfo/index.js
 const app = getApp()
+const db = wx.cloud.database();
+
 Page({
 
   /**
@@ -14,8 +16,9 @@ Page({
    */
 
   onLoad: function (options) {
-    var that = this;
-    
+    this.setData({
+      userInfo: app.globalData.userInfo,
+    })
   },
 
   // 确认修改提交
@@ -27,10 +30,9 @@ Page({
     var tel = formObject.tel;
     var sex = formObject.sex;
     var password = formObject.password;
-
-    var userInfo = wx.getStorageSync("userInfo");
-    console.log(email)
-    if (username == "" || email == "" || number == "" || telephone == "" || password == "") {
+    var userInfo = this.data.userInfo;
+    console.log(userInfo)
+    if (username == "" || userid == "" || tel == "" || sex == "" || password == "") {
       wx.showToast({
         title: '请填写所有信息',
         icon: 'none'
@@ -39,48 +41,29 @@ Page({
     }
     else {
       wx.showLoading({
-        title: '请稍后...',
+        title: '修改中,请稍后...',
       })
-      wx.request({
-
-        url: app.serverurl + 'user/updatauserbyid?userId=' + userInfo.userId,
-        method: 'POST',
+      db.collection('users').doc(userInfo._id).update({
         data: {
-          username: username,
-          email: email,
-          number: number,
-          telephone: telephone,
-          email: email,
-          password: password
+          username: formObject.username,
+          tel: formObject.tel,
+          sex: formObject.sex,
+          password: formObject.password,
         },
-        success: function (res) {
-          wx.hideLoading();
-          var status = res.data.status;
-          console.log(status);
-          if (status == 200) {
-            wx.showToast({
-              title: "修改成功",
-              icon: 'none',
-              success(ress) {
-
-                setTimeout(function () {
-                  wx.reLaunch({
-                    url: '/pages/home/index',
-                  })
-                }, 1500)
-              }
-            })
-
-
-          } else if (status == 500) {
-            wx.showToast({
-              title: res.data.msg,
-              icon: 'none',
-              duration: 3000
-            })
-          }
+        success: res => {
+          wx.showToast({
+            title: "修改成功",
+            icon: 'success',
+            success: res => {
+              setTimeout(function () {
+                wx.navigateBack({
+                  delta: 1,
+                })
+              }, 1500)
+            }
+          })
         }
       })
     }
-  },
+  }
 })

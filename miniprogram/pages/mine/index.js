@@ -1,18 +1,21 @@
 // pages/my/my.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    grade: 2,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      grade: app.globalData.userInfo.grade
+    })
   },
 
   toCourse: function (e) {
@@ -38,6 +41,11 @@ Page({
   toMyWorks: function (e) {
     wx.navigateTo({
       url: '../createWorks/wkSee/index?status=' + 1,
+    })
+  },
+  toMyHomeWorks: function (e) {
+    wx.navigateTo({
+      url: '../createHomeWorks/index',
     })
   },
   toSet: function (e) {

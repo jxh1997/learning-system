@@ -13,5 +13,5 @@
     </view>
   </view>
 </view>
-<view class="add iconfont icon-zengjia" id="add" bindtap="gotoWkCreate"></view>
+<view class="add iconfont icon-zengjia" id="add" bindtap="gotoWkCreate" wx:if="{{grade === 1}}"></view>
 

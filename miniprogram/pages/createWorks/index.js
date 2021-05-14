@@ -9,7 +9,8 @@ Component({
   data: {
     courseId: '',
     totalExperiments:0,
-    exList: []
+    exList: [],
+    grade: 2,
   },
   pageLifetimes:{
     show(){
@@ -20,7 +21,9 @@ Component({
 
   attached() {
     this.getAllExperimentList();
-
+    this.setData({
+      grade: app.globalData.userInfo.grade
+    })
   },
  
   methods: {

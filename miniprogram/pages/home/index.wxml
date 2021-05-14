@@ -33,6 +33,6 @@
   </view>
 </view>
 <!-- 添加资源 -->
-<view class="add" id="add" catchtap='toAdd'>
+<view class="add" id="add" catchtap='toAdd' wx:if="{{grade === 1}}">
   <image src="../../assets/images/icon/add.png"></image>
 </view>

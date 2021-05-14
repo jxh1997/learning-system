@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/news/index",
+    "pages/home/index",
     "pages/login/index",
     "pages/register/index",
-    "pages/home/index",
     "pages/course/index",
     "pages/mine/index",
-    "pages/news/index",
     "pages/editInfo/index",
     "pages/playVideo/index",
     "pages/createCourse/index",

@@ -19,7 +19,7 @@
   </view>
 </view>
 
-<view class="add iconfont icon-zengjia" id="add" bindtap="showDialogBtn"></view>
+<view class="add iconfont icon-zengjia" id="add" bindtap="showDialogBtn" wx:if="{{grade === 1}}"></view>
 
 <view class="null" wx:if="{{publishedList.length == 0}}" hidden="{{currentBlock==0?false:true}}">空空如也</view>
 <view class="null" wx:if="{{unpublishList.length == 0}}" hidden="{{currentBlock==1?false:true}}">空空如也</view>

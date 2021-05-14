@@ -1,5 +1,6 @@
 // miniprogram/pages/index/index.js
 const db = wx.cloud.database();
+const app = getApp();
 
 Page({
 
@@ -7,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    grade: 2,
     indicatorDots: false,
     vertical: false,
     autoplay: true,
@@ -27,6 +29,9 @@ Page({
    */
   onLoad: function (options) {
     this.getCourseList();
+    this.setData({
+      grade: app.globalData.userInfo.grade
+    })
   },
 
   // 获取课程信息

@@ -1,12 +1,13 @@
 // miniprogram/pages/cours/index.js
 const db = wx.cloud.database();
-
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    grade: 2,
     courseId: '79550af2609b4edd16246a2e061b0378',
     courseInfo: [],
     fileList: [],
@@ -21,7 +22,8 @@ Page({
   onLoad: function (options) {
     let courseId = options.courseId;
     this.setData({
-      courseId: courseId
+      courseId: courseId,
+      grade: app.globalData.userInfo.grade
     })
     this.getCourseInfo(this.data.courseId);
   },
