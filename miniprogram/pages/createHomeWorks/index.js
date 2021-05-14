@@ -24,7 +24,7 @@ Component({
       })
       var that = this;
       that.getAllPublishedTasks();
-      // that.getAllUnpublishTasks();
+      
       console.log("显示主页面。。。");
     },
     hide(){
@@ -32,16 +32,6 @@ Component({
     }
   },
 
-  attached()
-  {
-    //页面首次加载
-    /*
-    var me = this;
-    me.getAllPublishedTasks();
-    me.getAllUnpublishTasks();
-    console.log(me.data)
-    */
-  },
   methods: {
     //已提交作业详情
     showPHW: function (e) {
@@ -144,7 +134,7 @@ Component({
       var homeworkId = e.currentTarget.dataset.set;
       console.log(homeworkId);
       wx.navigateTo({
-        url: '../question/exam/index?homeworkId' + homeworkId,
+        url: '../question/exam/index?homeworkId=' + homeworkId,
       }) 
     },
 
@@ -203,16 +193,13 @@ Component({
       })
     },
 
-    //获取所有作业信息
+    // 获取所有作业信息
     getAllPublishedTasks: function () {
       var that = this;
       wx.showLoading({
         title: '请等待，加载中...',
       });
-
-      db.collection('works').where({
-        _openid: app.globalData.openid
-      }).get({
+      db.collection('works').get({
         success(res) {
           wx.hideLoading();
           console.log("courseList: " , res);
@@ -220,11 +207,38 @@ Component({
             publishedList: res.data,
             totalPublishedTasks: res.data.length
           })
+          // that.getUserFinshed(res.data);
         },fail(err) {
           console.log(err);
         }
       })
     },
+
+    // 获取用户是否完成该作业
+    getUserFinshed(courseList) {
+      var that = this;
+      db.collection('questions').where({
+        _openid: app.globalData.openid
+      }).get({
+        success(res) {
+          let questions = res.data;
+          for(let i = 0 ; i < questions.length; i++) {
+            for(let j = 0 ; j < courseList.length; j++) {
+              if(questions[i].questionId === courseList[j]._id) {
+                console.log("123",courseList[j]);
+              }
+            }
+          }
+          // that.setData({
+          //   publishedList: res.data,
+          //   totalPublishedTasks: res.data.length
+          // })
+        },fail(err) {
+          console.log(err);
+        }
+      })
+    },
+
     // 去发布
     toAdd:function(){
       let that = this;

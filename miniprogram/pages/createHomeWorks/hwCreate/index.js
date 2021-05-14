@@ -257,7 +257,7 @@ Page({
               db.collection('works').add({
                 data: {
                   taskTitle: taskTitle,
-                  questionList: JSON.stringify(questionList),
+                  questionList: questionList,
                   createTeacher: that.data.createTeacher || '王老师',
                   createTime:  util.formatTime(new Date(), 'YY-MM-DD hh-mm-ss'),
                 },
@@ -382,7 +382,7 @@ Page({
               db.collection('works').add({
                 data: {
                   taskTitle: taskTitle,
-                  questionList: JSON.stringify(questionList),
+                  questionList: questionList,
                   createTeacher: that.data.createTeacher || '王老师',
                   createTime:  util.formatTime(new Date(), 'YY-MM-DD hh-mm-ss'),
                 },
@@ -505,7 +505,7 @@ Page({
               db.collection('works').add({
                 data: {
                   taskTitle: taskTitle,
-                  questionList: JSON.stringify(questionList),
+                  questionList: questionList,
                   createTeacher: that.data.createTeacher || '王老师',
                   createTime:  util.formatTime(new Date(), 'YY-MM-DD hh-mm-ss'),
                 },

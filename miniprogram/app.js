@@ -24,7 +24,7 @@ App({
     }
 
     this.globalData = {
-      openid: '',
+      openid: 'oJ7EO0VrO8P1B10pOa1Zt98In3yU',
     }
   }
 })

@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/createHomeWorks/index",
     "pages/home/index",
     "pages/course/index",
     "pages/mine/index",
@@ -13,6 +12,7 @@
     "pages/createHomeWorks/hwEdit/index",
     "pages/createHomeWorks/hwShow/index",
     "pages/question/index",
+    "pages/createHomeWorks/index",
     "pages/question/exam/index"
   ],
   "window": {
