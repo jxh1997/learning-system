@@ -1,0 +1,62 @@
+<view class="container">
+
+  <view class="login-from">
+    <!--账号-->
+    <view class="inputView">
+      <image class="nameImage" src="../../assets/images/icon/username.png"></image>
+      <label class="loginLab">学号/工号</label>
+      <input class="inputText" placeholder="请输入学号/工号" bindinput="usernameInput" value="{{username}}" />
+    </view>
+    <view class="line"></view>
+
+     <!--姓名-->
+     <view class="inputView">
+      <image class="nameImage" src="../../assets/images/icon/username.png"></image>
+      <label class="loginLab">姓名</label>
+      <input class="inputText" placeholder="请输入姓名" bindinput="nameInput" value="{{name}}" />
+    </view>
+    <view class="line"></view>
+
+    <!--密码-->
+    <view class="inputView">
+      <image class="keyImage" src="../../assets/images/icon/password.png"></image>
+      <label class="loginLab">密 码</label>
+      <input class="inputText" password="true" placeholder="请输入密码" bindinput="passwordInput" value="{{password}}" />
+    </view>
+    <view class="line"></view>
+
+    <!--确认密码-->
+    <view class="inputView">
+      <image class="keyImage" src="../../assets/images/icon/password.png"></image>
+      <label class="loginLab">确认密码</label>
+      <input class="inputText" password="true" placeholder="请再次输入密码" bindinput="password2Input" value="{{password2}}" />
+    </view>
+    <view class="line"></view>
+
+    <!--身份确认-->
+    <view class="inputView">
+      <image class="keyImage" src="../../assets/images/icon/shenfen.png"></image>
+      <label class="loginLab">我是教师</label>
+      <switch class="switch" checked="{{switch1Checked}}" bindchange="switch1Change"/></view>
+    <view class="line"></view>
+        
+    <!--验证码-->
+    <view class="inputView">
+      <label class="loginLab">
+        <view class='makecode' bindtap='getcode'>{{code}}</view>
+      </label>
+      <input class="inputText" placeholder="请输入验证码" bindinput="makecodeInput" value="{{makecode}}" />
+    </view>
+
+    <!--按钮-->
+    <view class="loginBtnView">
+      <button class="loginBtn" type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="register">
+        注册
+      </button>
+      <view class="zhuce" bindtap="gotoLogin">
+        已有账号，去登录
+      </view>
+    </view>
+  </view>
+</view>
