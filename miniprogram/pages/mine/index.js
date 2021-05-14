@@ -25,19 +25,24 @@ Page({
       url: '../news/index',
     })
   },
-  toHelp: function (e) {
+  toWorks: function (e) {
     wx.navigateTo({
-      url: 'help/help',
+      url: '../createWorks/index',
     })
   },
   toFeedback: function (e) {
     wx.navigateTo({
-      url: 'feedback/feedback',
+      url: '../createWorks/wkSee/index?status=' + 0,
+    })
+  },
+  toMyWorks: function (e) {
+    wx.navigateTo({
+      url: '../createWorks/wkSee/index?status=' + 1,
     })
   },
   toSet: function (e) {
     wx.navigateTo({
-      url: 'set/set',
+      url: '../createWorks/wkSet/index?status=' + 1,
     })
   },
   toEdit: function (e) {

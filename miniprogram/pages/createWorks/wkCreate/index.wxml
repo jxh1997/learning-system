@@ -1,0 +1,33 @@
+<!--miniprogram/pages/createWorks/wkCreate/index.wxml-->
+<view class="title"> 所属课程 </view>
+<view class="cu-bar bg-white solid-bottom padding-left">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{courseList}}">
+    <view class="picker">
+      当前课程：{{courseList[index]}}
+    </view>
+  </picker>
+</view>
+
+<view class="title">作业标题</view>
+<view class="cu-bar bg-white solid-bottom padding-left">
+  <input class="weui-input" bindinput="bindKeyInput" placeholder="请输入作业标题" value="{{worksTitle}}" />
+</view>
+
+<view class="title"> 作业内容 </view>
+<view class="cu-bar bg-white solid-bottom padding-left">
+  <textarea class="textarea" bindinput="bindTextareaInput" placeholder="请描述作业内容..." value="{{worksContent}}" />
+</view>
+
+<view class="title"> 备注 </view>
+<view class="cu-bar bg-white solid-bottom padding-left">
+  <textarea class="textarea" bindinput="bindTextareaInputBz" placeholder="一些作业的注意事项或备注（如老师邮箱等）" value="{{worksDesc}}"/>
+</view>
+
+<view class='bottom-bg-view'>
+  <button class='save-send-button' data-status='1' bindtap='saveWorks'>
+    保存并发布
+  </button>
+  <button class='save-button' data-status='0' bindtap='resetWorks'>
+    内容重置
+  </button>
+</view>

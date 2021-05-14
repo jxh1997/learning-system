@@ -1,0 +1,21 @@
+<view class="blocka">
+  <view class="heada">待批阅的作业 ({{worksList.length}})</view>
+  <view class="row" wx:for="{{worksList}}"  catchtap='toExperiment' wx:for-index="index" data-set="{{item._id}}">
+    <view class="img">
+      <image src="../../../assets/images/icon/works.png"></image>
+    </view>
+    <view class="desc"> 
+      <view class="title">{{item.works.worksTitle}}</view>
+      <view class="time">提交时间：{{item.submitTime}} </view>
+      <view class="statement">
+        <view class="statement">
+          <text wx:if="{{item.status === 1}}" class="ascore">状态：待审批</text>
+          <text wx:if="{{item.status === 2}}" class="ascore green">状态：批阅通过</text>
+          <text wx:if="{{item.status === 3}}" class="ascore red">状态：批阅驳回</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="null" wx:if="{{worksList.length === 0}}">空空如也</view>
+</view>
+

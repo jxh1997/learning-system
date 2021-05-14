@@ -17,23 +17,6 @@
       </view>
     </view>
   </view>
-<!-- 
-  <view class="unpublish" hidden="{{currentBlock==1?false:true}}">
-    <view class="row" wx:for="{{unpublishList}}">
-      <view class="row-con" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" data-index="{{index}}"
-        style="{{item.txtStyle}}" catchtap='showHW'>
-        <view class="img">
-          <image src="/img/file/link.png"></image>
-        </view>
-        <view class="desc">
-          <view class="title">{{item.title}}</view>
-          <view class="title transpalte" style="color:white"><text decode="{{true}}">&ensp;</text></view>
-        </view>
-        <button class="pub_btn" bindtap="push">发布</button>
-      </view>
-      <view class="del" data-index="{{index}}" bindtap="delItem">删除</view>
-    </view>
-  </view> -->
 </view>
 
 <view class="add iconfont icon-zengjia" id="add" bindtap="showDialogBtn"></view>

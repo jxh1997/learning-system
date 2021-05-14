@@ -13,7 +13,11 @@
     "pages/createHomeWorks/hwShow/index",
     "pages/question/index",
     "pages/createHomeWorks/index",
-    "pages/question/exam/index"
+    "pages/createWorks/wkCreate/index",
+    "pages/createWorks/wkShow/index",
+    "pages/createWorks/wkSee/index",
+    "pages/createWorks/wkSet/index",
+    "pages/createWorks/wkSet/wkSetShow/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
