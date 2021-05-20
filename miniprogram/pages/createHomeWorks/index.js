@@ -4,6 +4,7 @@ const db = wx.cloud.database();
 
 Component({
   data: {
+    grade: 1,
     date: "",
     txtStyle: "",
     hw_count:1,
@@ -20,7 +21,8 @@ Component({
   pageLifetimes:{
     show() {
       this.setData({
-        currentBlock: 0
+        currentBlock: 0,
+        grade: app.globalData.userInfo.grade,
       })
       var that = this;
       that.getAllPublishedTasks();
@@ -40,6 +42,13 @@ Component({
       wx.navigateTo({
         url: '/pages/course/component_t/homework/phw_show/phw_show?name=' + name + "&" + "index=" + e.currentTarget.dataset.set + "&courseTaskId=" + courseTaskId,
       })
+    },
+
+    inputChange(e) {
+      this.setData({
+        date: e.detail.value
+      })
+      console.log(this.data.date);
     },
 
     push: function (e) {

@@ -13,25 +13,25 @@
       <label>性别
         <text style="color:red">*</text>
       </label>
-      <input name="username" value='{{userInfo.sex}}'></input>
+      <input name="sex" value='{{userInfo.sex}}'></input>
     </view>
     <view class="row">
       <label>学号/工号
         <text style="color:red">*</text>
       </label>
-      <input name="number" value='{{userInfo.userid}}' disabled="true"> </input>
+      <input name="userid" value='{{userInfo.userid}}' disabled="true"> </input>
     </view>
     <view class="row">
       <label>手机
         <text style="color:red">*</text>
       </label>
-      <input name="telephone" value='{{userInfo.tel}}'></input>
+      <input name="tel" value='{{userInfo.tel}}'></input>
     </view>
     <view class="row">
       <label>密码
         <text style="color:red">*</text>
       </label>
-      <input name="password" type="password"></input>
+      <input name="password" type="password" value="{{userInfo.password}}"></input>
     </view>
     <button form-type='submit'>确定</button>
   </form>

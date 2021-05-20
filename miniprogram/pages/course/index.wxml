@@ -68,7 +68,7 @@
           <image src="../../assets/images/icon/download.png"></image>
         </view>
         <!-- 删除 -->
-        <view class="del" bindtap="delFile" data-fileId="{{item.fileID}}" data-type="Teaching">
+        <view class="del" bindtap="delFile" data-fileId="{{item.fileID}}" data-type="Teaching" wx:if="{{grade === 1}}">
           <image src="../../assets/images/icon/del.png"></image>
         </view>
       </view>
@@ -113,7 +113,7 @@
           <image src="../../assets/images/icon/download.png"></image>
         </view>
         <!-- 删除 -->
-        <view class="del" bindtap="delFile" data-fileId="{{item.fileID}}" data-type="Reference">
+        <view class="del" bindtap="delFile" data-fileId="{{item.fileID}}" data-type="Reference" wx:if="{{grade === 1}}">
           <image src="../../assets/images/icon/del.png"></image>
         </view>
       </view>
@@ -155,7 +155,7 @@
           <image src="../../assets/images/icon/download.png"></image>
         </view>
         <!-- 删除 -->
-        <view class="del" bindtap="delFile" data-fileId="{{item.fileID}}" data-type="Video">
+        <view class="del" bindtap="delFile" data-fileId="{{item.fileID}}" data-type="Video"  wx:if="{{grade === 1}}">
           <image src="../../assets/images/icon/del.png"></image>
         </view>
       </view>

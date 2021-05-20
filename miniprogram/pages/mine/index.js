@@ -57,5 +57,16 @@ Page({
     wx.navigateTo({
       url: '../editInfo/index',
     })
-  }
+  },
+  outLogin: function() {
+    app.globalData.userInfo = {};
+    wx.navigateTo({
+      url: '../login/index',
+    })
+  },
+  onShow: function () {
+        this.setData({
+          grade: app.globalData.userInfo.grade
+        })
+      },
 })

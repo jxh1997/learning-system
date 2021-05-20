@@ -3,15 +3,38 @@
   <!-- <view class="row-img"><image src="{{item.img}}"></image></view> -->
   <view class="row-desc">
     <view class="con">
-      <view class="name">{{item.name}}</view>
-      <view class="desc">{{item.con}}</view>
+      <view class="name">{{item.sendUserName}}</view>
+      <view class="desc">{{item.content}}</view>
     </view>
-    <view class="time">{{item.time}}</view>
+    <view class="time">{{item.sendTime}}</view>
   </view>
   
 </view>
 <view wx:if="{{mess.length==0}}" class="null" style="text-align:center">空空如也</view>
 
-<view class="add" id="add" catchtap='toSendNews'>
+<view class="add" id="add" catchtap='showDialogBtn'>
   <image src="../../assets/images/icon/add.png"></image>
 </view>
+
+<!--弹窗-->
+<form bindsubmit="GetName">
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">发送消息</view>
+    <view class="modal-content">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{userList}}">
+        <view class="picker">
+          发送对象：{{userList[index]}}
+        </view>
+      </picker>
+      <view class="modal-input">
+        <input placeholder-class="input-holder" type="text" bindinput="inputChange" class="input" value="{{inputValue}}" name="hw_name"></input>
+
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</button>
+      <button class="btn-confirm" bindtap="toSend" data-status="confirm" form-type='submit'>发送</button>
+    </view>
+  </view>
+</form>

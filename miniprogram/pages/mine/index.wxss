@@ -176,3 +176,10 @@ page {
 .row44 {
   margin-bottom: 200rpx;
 }
+
+.loginBtn { 
+  width: 90%; 
+  /* margin-top: 40px;  */
+  border-radius:10px;
+  margin-bottom: 120rpx;
+ }

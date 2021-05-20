@@ -124,10 +124,10 @@ page{
   background: #FFFFFF;
   border-radius: 26.5rpx;
   position: absolute;
-  /* right: 25rpx; */
-  /* top:20rpx; */
-  margin-top: 20rpx;
-  margin-left: 30rpx;
+  left: 160rpx; 
+   bottom:390rpx; 
+  /* margin-bottom: 20rpx;
+  margin-left: 30rpx; */
   color:#0903EC;
   text-align: center;
   line-height: 53rpx;

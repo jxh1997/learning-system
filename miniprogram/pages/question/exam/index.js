@@ -40,15 +40,18 @@ Page({
         for (let index in quslist) {
           let type = quslist[index].questionType;
           if (type === 3) {
+            let choice = quslist[index].answer.split('-');
             var question = {
               questionType: quslist[index].questionType,
               questionID: quslist[index].questionId,
               questionDesc: quslist[index].questionDesc,
-              choicelist: [],
-              answer: quslist[index].choicelist, //answer[i]
+              choicelist: choice,
+              // answer: choice, //answer[i]
+              answer: choice,
               useranswer: [],
               grade: -1
             }
+            console.log(question);
           } else {
             let choice = quslist[index].choice.split('-');
             let choicelist = []
@@ -164,7 +167,8 @@ Page({
       for (var i = 0; i < length; i++) {
         that[this.data.index].useranswer[i] = '';
         that[this.data.index].useranswer[i] += e.detail.value[i];
-        if (that[this.data.index].useranswer[i] == that[this.data.index].answer[i]) {
+        console.log("aa: " , that[this.data.index].answer[i]);
+        if (that[this.data.index].useranswer[i] === that[this.data.index].answer[i]) {
           that[this.data.index].grade = (100 / that.length).toPrecision(3);
         } else {
           that[this.data.index].grade = 0;

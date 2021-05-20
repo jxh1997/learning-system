@@ -23,10 +23,17 @@ Page({
     let courseId = options.courseId;
     this.setData({
       courseId: courseId,
-      grade: app.globalData.userInfo.grade
     })
     this.getCourseInfo(this.data.courseId);
   },
+
+  onShow: function() {
+    this.setData({
+      grade: app.globalData.userInfo.grade
+    })
+  },
+
+
 
   // 获取课程信息
   getCourseInfo(courseId) {

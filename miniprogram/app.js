@@ -9,7 +9,7 @@ App({
         //   env 参数决定接下来小程序发起的云开发调用（wx.cloud.xxx）会默认请求到哪个云环境的资源
         //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
         //   如不填则使用默认环境（第一个创建的环境）
-        env: 'lms-3gkwj950d4e06374',
+        env: 'cloud1-7gexle7210ddbd11',
         traceUser: true,
       })
 
@@ -24,7 +24,8 @@ App({
     }
 
     this.globalData = {
-      openid: 'oJ7EO0VrO8P1B10pOa1Zt98In3yU',
+      openid: '',
+      userInfo: {}
     }
   }
 })

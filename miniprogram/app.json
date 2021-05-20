@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/news/index",
-    "pages/home/index",
     "pages/login/index",
+    "pages/home/index",
+    "pages/news/index",
     "pages/register/index",
     "pages/course/index",
     "pages/mine/index",

@@ -67,7 +67,7 @@ Page({
         })
       }
     })
-    me.getAllCourseList();
+    // me.getAllCourseList();
   },
 
   // 作业填写
